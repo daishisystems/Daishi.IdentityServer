@@ -15,7 +15,7 @@ namespace Daishi.IdentityServer {
                 "/core",
                 coreApp => {
                     coreApp.UseIdentityServer(new IdentityServerOptions {
-                        SiteName = "Standalone Identity Server",
+                        SiteName = "Ryanair Identity Provider",
                         SigningCertificate = Cert.Load(),
                         Factory = InMemoryFactory.Create(
                             Users.Get(),

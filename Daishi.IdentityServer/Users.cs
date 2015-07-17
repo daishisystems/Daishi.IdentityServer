@@ -12,13 +12,13 @@ namespace Daishi.IdentityServer {
         public static List<InMemoryUser> Get() {
             return new List<InMemoryUser> {
                 new InMemoryUser {
-                    Username = "Paul Mooney",
+                    Username = "admin",
                     Password = "password",
                     Subject = "1",
                     Claims = new List<Claim> {
-                        new Claim(Constants.ClaimTypes.GivenName, "Paul"),
-                        new Claim(Constants.ClaimTypes.FamilyName, "Mooney"),
-                        new Claim(Constants.ClaimTypes.Email, "paul@daishisystems.com")
+                        new Claim(Constants.ClaimTypes.GivenName, "Administrator"),
+                        new Claim(Constants.ClaimTypes.FamilyName, "Ryanair"),
+                        new Claim(Constants.ClaimTypes.Email, "admin@ryanair.com")
                     }
                 }
             };
