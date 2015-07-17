@@ -11,7 +11,9 @@ namespace Daishi.IdentityServer {
             return new List<Scope> {
                 StandardScopes.OpenId,
                 StandardScopes.Profile,
-                StandardScopes.Email
+                StandardScopes.Email,
+                StandardScopes.Roles,
+                StandardScopes.OfflineAccess
             };
         }
     }

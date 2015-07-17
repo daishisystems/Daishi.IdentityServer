@@ -11,20 +11,27 @@ namespace Daishi.IdentityServer {
         public static IEnumerable<Client> Get() {
             return new List<Client> {
                 new Client {
-                    ClientId = "implicitclient",
-                    ClientName = "Example Implicit Client",
+                    ClientId = @"hybridclient",
+                    ClientName = @"Ryanair",
+                    ClientSecrets = new List<ClientSecret> {
+                        new ClientSecret("idsrv3test".Sha256())
+                    },
                     Enabled = true,
-                    Flow = Flows.Implicit,
-                    RequireConsent = true,
+                    Flow = Flows.Hybrid,
+                    RequireConsent = false,
                     AllowRememberConsent = true,
                     RedirectUris = new List<string> {
-                        "https://localhost:44304/account/signInCallback"
+                        "https://localhost:44304/"
                     },
-                    PostLogoutRedirectUris = new List<string>(),
+                    PostLogoutRedirectUris = new List<string> {
+                        "https://localhost:44304/"
+                    },
                     ScopeRestrictions = new List<string> {
                         Constants.StandardScopes.OpenId,
                         Constants.StandardScopes.Profile,
-                        Constants.StandardScopes.Email
+                        Constants.StandardScopes.Email,
+                        Constants.StandardScopes.Roles,
+                        Constants.StandardScopes.OfflineAccess
                     },
                     AccessTokenType = AccessTokenType.Jwt
                 }
