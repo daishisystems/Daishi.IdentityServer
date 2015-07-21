@@ -35,13 +35,25 @@ namespace Daishi.IdentityServer {
                     },
                     AccessTokenType = AccessTokenType.Jwt
                 },
-                new Client() {
+                new Client {
                     ClientId = "ROCGClient",
                     ClientName = "Ryanair",
                     ClientSecrets = new List<ClientSecret> {
                         new ClientSecret("password".Sha256())
                     },
                     Flow = Flows.ResourceOwner,
+                    RequireConsent = false,
+                    RedirectUris = new List<string> {
+                        "https://localhost:44304/account/callback"
+                    }
+                },
+                new Client {
+                    ClientId = "codeClient",
+                    ClientName = "Ryanair",
+                    ClientSecrets = new List<ClientSecret> {
+                        new ClientSecret("password".Sha256())
+                    },
+                    Flow = Flows.AuthorizationCode,
                     RequireConsent = false,
                     RedirectUris = new List<string> {
                         "https://localhost:44304/account/callback"

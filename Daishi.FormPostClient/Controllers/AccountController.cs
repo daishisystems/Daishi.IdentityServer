@@ -12,7 +12,7 @@ namespace Daishi.FormPostClient.Controllers {
             return this.Redirect("/");
         }
 
-        public ActionResult Callback(string accessToken) {
+        public ActionResult Callback(string code, string session_state) {
             return this.Redirect("/");
         }
 
