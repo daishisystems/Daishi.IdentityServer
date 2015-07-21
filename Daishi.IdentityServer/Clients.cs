@@ -34,6 +34,18 @@ namespace Daishi.IdentityServer {
                         Constants.StandardScopes.OfflineAccess
                     },
                     AccessTokenType = AccessTokenType.Jwt
+                },
+                new Client() {
+                    ClientId = "ROCGClient",
+                    ClientName = "Ryanair",
+                    ClientSecrets = new List<ClientSecret> {
+                        new ClientSecret("password".Sha256())
+                    },
+                    Flow = Flows.ResourceOwner,
+                    RequireConsent = false,
+                    RedirectUris = new List<string> {
+                        "https://localhost:44304/account/callback"
+                    }
                 }
             };
         }

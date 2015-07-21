@@ -12,6 +12,10 @@ namespace Daishi.FormPostClient.Controllers {
             return this.Redirect("/");
         }
 
+        public ActionResult Callback(string accessToken) {
+            return this.Redirect("/");
+        }
+
         public ActionResult SignOut() {
             this.Request.GetOwinContext().Authentication.SignOut();
             return this.Redirect("/");
