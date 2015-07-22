@@ -1,6 +1,7 @@
 ﻿#region Includes
 
 using System.Collections.Generic;
+using Thinktecture.IdentityServer.Core;
 using Thinktecture.IdentityServer.Core.Models;
 
 #endregion
@@ -13,7 +14,18 @@ namespace Daishi.IdentityServer {
                 StandardScopes.Profile,
                 StandardScopes.Email,
                 StandardScopes.Roles,
-                StandardScopes.OfflineAccess
+                StandardScopes.OfflineAccess,
+                new Scope {
+                    Name = "custom",
+                    DisplayName = "Custom",
+                    Description = "Custom Scope",
+                    Type = ScopeType.Identity,
+                    Claims = new List<ScopeClaim> {
+                        new ScopeClaim(Constants.ClaimTypes.GivenName, true),
+                        new ScopeClaim(Constants.ClaimTypes.FamilyName, true),
+                        new ScopeClaim(Constants.ClaimTypes.Email, true)
+                    }
+                }
             };
         }
     }
