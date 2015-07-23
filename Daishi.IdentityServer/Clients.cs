@@ -56,7 +56,8 @@ namespace Daishi.IdentityServer {
                     Flow = Flows.AuthorizationCode,
                     RequireConsent = false,
                     RedirectUris = new List<string> {
-                        "https://localhost:44304/account/callback"
+                        "https://localhost:44304/account/callback",
+                        "https://localhost:9443/examples/callback"
                     }
                 }
             };
