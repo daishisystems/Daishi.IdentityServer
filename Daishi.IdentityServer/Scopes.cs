@@ -13,8 +13,8 @@ namespace Daishi.IdentityServer {
                 StandardScopes.OpenId,
                 StandardScopes.Profile,
                 StandardScopes.Email,
-                StandardScopes.Roles,
-                StandardScopes.OfflineAccess,
+                StandardScopes.RolesAlwaysInclude,
+                StandardScopes.OfflineAccess,                
                 new Scope {
                     Name = "custom",
                     DisplayName = "Custom",
