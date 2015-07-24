@@ -11,10 +11,10 @@ namespace Daishi.IdentityServer {
         public static IEnumerable<Scope> Get() {
             return new List<Scope> {
                 StandardScopes.OpenId,
-                StandardScopes.Profile,
-                StandardScopes.Email,
+                StandardScopes.ProfileAlwaysInclude,
+                StandardScopes.EmailAlwaysInclude,
                 StandardScopes.RolesAlwaysInclude,
-                StandardScopes.OfflineAccess,                
+                StandardScopes.OfflineAccess,
                 new Scope {
                     Name = "custom",
                     DisplayName = "Custom",
