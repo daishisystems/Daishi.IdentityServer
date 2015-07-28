@@ -44,9 +44,7 @@ namespace Daishi.IdentityServer {
                     Flow = Flows.ResourceOwner,
                     RequireConsent = false,
                     RedirectUris = new List<string> {
-                        // Don't need these
-                        "https://localhost:44304/account/callback",
-                        "https://localhost:9443/examples/callback"
+                        "https://localhost:44304/account/callback"
                     }
                 },
                 new Client {
@@ -60,14 +58,6 @@ namespace Daishi.IdentityServer {
                     RedirectUris = new List<string> {
                         "https://localhost:44304/account/callback",
                         "https://localhost:9443/examples/callback"
-                    }
-                },
-                new Client {
-                    ClientId = "clientCredentials",
-                    AccessTokenType = AccessTokenType.Reference,
-                    Flow = Flows.ClientCredentials,
-                    ClientSecrets = new List<ClientSecret> {
-                        new ClientSecret("password".Sha256())
                     }
                 }
             };
