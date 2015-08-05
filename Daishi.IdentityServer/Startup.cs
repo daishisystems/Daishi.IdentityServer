@@ -3,6 +3,7 @@
 using Owin;
 using Thinktecture.IdentityServer.Core.Configuration;
 using Thinktecture.IdentityServer.Core.Logging;
+using Thinktecture.IdentityServer.Core.Services;
 
 #endregion
 
@@ -14,14 +15,17 @@ namespace Daishi.IdentityServer {
             app.Map(
                 "/core",
                 coreApp => {
+                    var factory = InMemoryFactory.Create(
+                        clients: Clients.Get(),
+                        scopes: Scopes.Get()
+                        );
+                    factory.UserService = new Registration<IUserService>(resolver => new RyanairUserService());
+
                     coreApp.UseIdentityServer(new IdentityServerOptions {
                         SiteName = "Ryanair Identity Provider",
                         SigningCertificate = Cert.Load(),
-                        Factory = InMemoryFactory.Create(
-                            Users.Get(),
-                            Clients.Get(),
-                            Scopes.Get()),
-                        RequireSsl = true
+                        RequireSsl = true,
+                        Factory = factory
                     });
                 });
         }
